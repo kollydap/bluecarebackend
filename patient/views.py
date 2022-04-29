@@ -10,3 +10,7 @@ class PatientList(generics.ListAPIView):
 class PatientDetail(generics.RetrieveAPIView):
     queryset = PatientProfile.objects.all()
     serializer_class = PatientSerializer
+
+class PatientCreate(generics.CreateAPIView):
+    queryset = PatientProfile.objects.all()
+    serializer_class = PatientSerializer

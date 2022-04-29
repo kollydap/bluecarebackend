@@ -17,7 +17,7 @@ class DoctorProfile(models.Model):
     schedule = models.CharField(default="Monday, Friday, Saturday", max_length=200)
     specialties = models.CharField(default="Cosmology ChildCare ", max_length=900) 
     myeducation = models.CharField(default="Bsc Anatomy", max_length=300)
-    myexperience = models.CharField(default="nurse at kopioko", max_length=300)
+    myexperience = models.CharField(default="nurse at BlueCare", max_length=300)
     def __str__(self):
         return str(self.user.username)
     
