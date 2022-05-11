@@ -9,6 +9,6 @@ class DoctorList(generics.ListAPIView):
 
 class DoctorDetail(generics.RetrieveAPIView):
     authentication_classes = []
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     queryset = DoctorProfile.objects.all()
     serializer_class = DoctorSerializer
