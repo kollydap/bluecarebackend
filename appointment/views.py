@@ -25,7 +25,7 @@ class AppointmentList(generics.ListAPIView):
 
 #only Authenticated people should be able to create an Appointment :}
 class AppointmentCreate(generics.CreateAPIView):
-    permission_classes= [IsAuthenticated]
+    permission_classes= [AllowAny]
     queryset =  Appointment.objects.all()
     serializer_class = AppointmentSerializer
     pass

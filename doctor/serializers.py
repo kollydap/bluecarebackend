@@ -13,8 +13,8 @@ class ExperienceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DoctorSerializer(serializers.ModelSerializer):
-    # education = EducationSerializer(read_only = True, many=True)
-    # experience = ExperienceSerializer(read_only = True, many=True)
+    education = EducationSerializer(read_only = True, many=True)
+    experience = ExperienceSerializer(read_only = True, many=True)
     class Meta:
         model = DoctorProfile
         fields = '__all__'

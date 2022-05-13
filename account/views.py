@@ -1,8 +1,8 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import RegisterUserSerializer
-from rest_framework.permissions import  AllowAny
+from .serializers import RegisterUserSerializer,AccountSerializer 
+from rest_framework.permissions import  AllowAny,IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
@@ -18,19 +18,14 @@ class UserCreate(APIView):
                 return Response(status=status.HTTP_201_CREATED)
         return Response(reg_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+class GetUser(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        user = request.user
+        serializer = AccountSerializer(user)
+        return(Response(data=serializer.data))
+    
+    
 class BlacklistTokenView(APIView):
     permission_classes = [AllowAny]
     

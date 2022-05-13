@@ -16,3 +16,11 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+    
+class AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        # i'm using the default django user model
+        model = User
+        fields = '__all__'
+        # fields = ('email', 'username','password')
